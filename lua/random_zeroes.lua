@@ -8,7 +8,8 @@ local sides = wesnoth.get_sides({ {"has_unit", { canrecruit = true }} })
 
 local extra_units = wesnoth.get_variable "Recall_Zero_Enable_Extra_Types"
 
-local zero_units = {
+local zero_units = { }
+local zero_choices = {
     "Peasant",
     "Woodsman",
     "Goblin Spearman",
@@ -21,16 +22,21 @@ local zero_units = {
     "Mudcrawler",
     "Wose Sapling",
     -- From SoTA:
-        -- "Delinquent",
+        "Delinquent",
     -- From Dead Water:
         -- "Merman Citizen",
         -- "Child King",
     -- From TRoW:
         -- "Noble Youth",
     -- From UtBS:
-        -- "Dustbok",
+        "Dustbok",
     -- Check for other faction/era addons
 }
+for _, unit_name in ipairs(zero_choices) do
+    if wesnoth.unit_types[unit_name] ~= nil then
+        table.insert(zero_units, unit_name)
+    end
+end
 if extra_units then
     table.insert(zero_units, "Trainee Mage")
     table.insert(zero_units, "Trainee Mage")
