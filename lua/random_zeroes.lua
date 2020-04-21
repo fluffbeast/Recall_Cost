@@ -8,8 +8,7 @@ local sides = wesnoth.get_sides({ {"has_unit", { canrecruit = true }} })
 
 local extra_units = wesnoth.get_variable "Recall_Zero_Enable_Extra_Types"
 
-local zero_units = { }
-local zero_choices = {
+local zero_units = {
     "Peasant",
     "Woodsman",
     "Goblin Spearman",
@@ -20,50 +19,34 @@ local zero_choices = {
     "Giant Scorpling",
     "Giant Rat",
     "Mudcrawler",
-    "Wose Sapling",
-    -- From SoTA:
-        "Delinquent",
-    -- From Dead Water:
-        -- "Merman Citizen",
-        -- "Child King",
-    -- From TRoW:
-        -- "Noble Youth",
-    -- From UtBS:
-        "Dustbok",
-    -- Check for other faction/era addons
 }
-for _, unit_name in ipairs(zero_choices) do
-    if wesnoth.unit_types[unit_name] ~= nil then
-        table.insert(zero_units, unit_name)
-    end
+if wesnoth.compare_versions(wesnoth.game_config.version, ">=", "1.15.1") then
+    table.insert(zero_units, "Wose Sapling")
 end
 if extra_units then
     table.insert(zero_units, "Trainee Mage")
-    table.insert(zero_units, "Trainee Mage")
-    -- zero_units.insert("Eft")
+    -- zero_units.insert("Saurian Eft")
     -- zero_units.insert("Drakelet")
 end
 
-local trainee_male_advance = { "Mage","Dark Adept" }
-local trainee_female_advance = { "Mage","Dark Adept" }
+local trainee_male_advance = { "Mage", "Dark Adept" }
+local trainee_female_advance = { "Mage", "Dark Adept" }
 
 local trainee_male_options = {
     "Dune Burner","Dune Herbalist","Saurian Augur",
-    "Thunder Mage", "Shaman", }
+    -- "Thunder Mage", "Shaman",
+}
 local trainee_female_options = {
     "Dune Burner","Elvish Shaman","Mermaid Initiate",
-    "Aragwaith Adept", "Southern Mystic", "Elvish Acolyte", "Faerie Sprite",
-    "Adept of Light", "Wood Mage", }
+    -- "Aragwaith Adept", "Southern Mystic", "Elvish Acolyte", "Faerie Sprite",
+    -- "Adept of Light", "Wood Mage",
+}
 
 for _, option in ipairs(trainee_male_options) do
-    if wesnoth.unit_types[option] ~= nil then
-        table.insert(trainee_male_advance, option)
-    end
+    table.insert(trainee_male_advance, option)
 end
 for _, option in ipairs(trainee_female_options) do
-    if wesnoth.unit_types[option] ~= nil then
-        table.insert(trainee_female_advance, option)
-    end
+    table.insert(trainee_female_advance, option)
 end
 
 local recall_list_done = wesnoth.get_variable "Recall_Cost_Done"
