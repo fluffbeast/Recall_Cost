@@ -25,6 +25,7 @@ if wesnoth.compare_versions(wesnoth.game_config.version, ">=", "1.15.1") then
 end
 if extra_units then
     table.insert(zero_units, "Trainee Mage")
+    -- zero_units.insert("Beardless Dwarf")
     -- zero_units.insert("Saurian Eft")
     -- zero_units.insert("Drakelet")
 end
