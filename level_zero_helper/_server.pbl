@@ -1,6 +1,8 @@
 title="Level Zero Helper"
 email="fluffbeast@gmail.com"
 author="Galen Brooks"
+version=""
+description=""
 icon="data/core/units/human-peasant/ruffian-idle-4.png"
 type="mod_mp"
 [feedback]
