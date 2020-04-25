@@ -1,0 +1,9 @@
+Level Zero Helper
+
+This mod has several features:
+
+ * Changes the recall cost of level zero units.  The new default is 10 gold, but it is adjustable.
+
+ * Optionally adds a few random level zero units to the recall list.  This works for both campaigns and multiplayer.  Campaigns can be played with just an initial recall list, or with a few new level zero units after each scenario.
+
+ * New level zero unit - Trainee Mage.  This unit is as hapless as you would expect, but with a twist. Each Trainee has a destiny; it will level up into some random, unexpected level one mage-like unit.
