@@ -1,4 +1,5 @@
-luacheck_ignore=false
+# luacheck_ignore=false
+luacheck_ignore=true
 luacheckrc='.build/.luacheckrc'
 luacheck_binary='luacheck'
 
