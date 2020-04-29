@@ -8,4 +8,4 @@ This mod has several features:
 
  * New level zero unit - Trainee Mage.  This unit is as hapless as you would expect, but with a twist. Each Trainee has a destiny; it will level up into some random, unexpected level one mage-like unit.
 
- * By default, this mod only uses units from the default+dunefolk era.  There is an option to additionally use units from Ageless Era.
+ * By default, this mod only uses units from core.  There is an option to additionally use units from Ageless Era.  When using this option in multiplayer, make sure that all players have the same version of Ageless Era installed.

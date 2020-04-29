@@ -68,7 +68,9 @@ local trainee_male_advance = {}
 local trainee_female_advance = {}
 
 if extra_units then
-    for i=1, 10, 1 do  -- Make Trainee Mage more common
+    local trainee_weight = 2
+    if use_ageless then trainee_weight = 20 end
+    for i=1, trainee_weight, 1 do  -- Make Trainee Mage more common
         table.insert(zero_units, "LZH_Trainee_Mage")
     end
     -- table.insert(zero_units, "Beardless Dwarf")
