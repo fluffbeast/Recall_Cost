@@ -4,10 +4,23 @@ local cost = wesnoth.get_variable "Recall_Zero_cost"
 local change_recall_cost = wesnoth.get_variable "Change_Zero_Recall"
 local helper = wesnoth.require("lua/helper.lua")
 
-local sides = wesnoth.get_sides({ {"has_unit", { canrecruit = true }} })
-
 local extra_units = wesnoth.get_variable "Recall_Zero_Enable_Extra_Types"
 local use_ageless = wesnoth.get_variable "Recall_Zero_Enable_Ageless"
+local recall_list_done = wesnoth.get_variable "Recall_Cost_Done"
+local gimme_more = wesnoth.get_variable "Recall_Zero_More_After_Every_Scenario"
+
+local sides = wesnoth.get_sides({ {"has_unit", { canrecruit = true }} })
+
+local settings = ""
+if change_recall_cost then settings = settings .. "Recall cost for level 0 units is now " .. cost end
+if num_zeroes and not recall_list_done then
+    settings = settings .. ", with " .. num_zeroes .. " units added to recall list | "
+    if extra_units then settings = settings .. "with custom unit types | " end
+    if use_ageless then settings = settings .. "with Ageless Era units | " end
+    if gimme_more then settings = settings .. "and more after every scenario | " end
+end
+if settings ~= "" then wesnoth.message("Level Zero Helper Mod version 0.1.4",settings) end
+
 local zero_units = {
     "Peasant",
     "Woodsman",
@@ -269,9 +282,6 @@ if extra_units then
         }
     end
 end
-
-local recall_list_done = wesnoth.get_variable "Recall_Cost_Done"
-local gimme_more = wesnoth.get_variable "Recall_Zero_More_After_Every_Scenario"
 
 if not recall_list_done or gimme_more then
     for side_index, side in ipairs(sides) do
