@@ -8,4 +8,4 @@ This mod has several optional features:
 
  * New level zero unit - Trainee Mage.  This unit is as hapless as you would expect, but with a twist. Each Trainee has a destiny; it will level up into some random, unexpected level one mage-like unit.
 
- * In addition to core units, also use units from Default L0 era or War of Legends era.
+ * In addition to core units, this also uses units from Default L0 era.
