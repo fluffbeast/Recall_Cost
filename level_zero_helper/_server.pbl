@@ -1,10 +1,18 @@
 icon="data/core/images/units/human-peasants/ruffian-idle-4.png"
-description="Add a few random level 0 units to your recall list, and reduce their recall cost."
+description="Modify the recall cost for level zero units.
+
+The default recall cost for level zero units is set to recruit cost + 1, but other options are available.
+
+You may start campaigns or multiplayer scenarios with a handful of random level zero units in the recall list.  Campaigns can be played with these units at start, or with more after every scenario.
+
+There is an optional new unit: the Trainee Mage.  This weak level 0 unit has a destiny; it will level up into some random, unexpected level one mage-like unit.  You do not get to choose what it will level into.
+
+This mod uses units from the Default L0 Era."
 title="Level Zero Helper"
 author="Fluffbeast"
 type="mod_mp"
 email="fluffbeast@gmail.com"
-version="0.2.3"
+version="0.2.5"
 [feedback]
         topic_id=52388
 [/feedback]
