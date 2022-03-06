@@ -1,7 +1,6 @@
 << 
 local num_zeroes = wesnoth.get_variable "Recall_Zero_Number_Random_Units"
 local cost_choice = wesnoth.get_variable "Recall_Zero_cost_choice"
-local helper = wesnoth.require("lua/helper.lua")
 
 local extra_units = wesnoth.get_variable "Recall_Zero_Enable_Extra_Types"
 local recall_list_done = wesnoth.get_variable "Recall_Cost_Done"
@@ -73,7 +72,7 @@ if not recall_list_done or gimme_more then
     for side_index, side in ipairs(sides) do
         if side.controller == 'human' then
             for i=1, num_zeroes, 1 do
-                local u = wesnoth.create_unit {type=helper.rand(zero_units), random_gender="yes"}
+                local u = wesnoth.create_unit {type=mathx.random_choice(zero_units), random_gender="yes"}
                 if extra_units and (u.type == "LZH_Trainee_Mage") then
                     -- pick an advancement randomly, and make it this unit's destiny.
                     if u.gender == "male" then
