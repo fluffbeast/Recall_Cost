@@ -5,6 +5,7 @@ local cost_choice = wesnoth.get_variable "Recall_Zero_cost_choice"
 local extra_units = wesnoth.get_variable "Recall_Zero_Enable_Extra_Types"
 local recall_list_done = wesnoth.get_variable "Recall_Cost_Done"
 local gimme_more = wesnoth.get_variable "Recall_Zero_More_After_Every_Scenario"
+local enable_wol = wesnoth.get_variable "Recall_Zero_Enable_WoL"
 
 local sides = wesnoth.get_sides({ {"has_unit", { canrecruit = true }} })
 
@@ -49,12 +50,30 @@ local zero_units = {
     "LZH Initiate",
 }
 
+local wol_zeroes = {
+    -- From War_of_Legends
+    "Cave Wyrmlet",
+    "Sky Shard",
+    -- "Brazier Whelpling", (not in Multiplayer)
+    "Fire Wisp",
+    "Wisp",
+    "Bloodborn",
+    "Lesser Wisp",
+    "Quenoth Dustbok",
+}
+
 
 local trainee_male_advance = {}
 local trainee_female_advance = {}
 
 if extra_units then
     local trainee_weight = 5
+    if enable_wol then
+        trainee_weight = trainee_weight + 5
+        for i=1, #wol_zeroes, 1 do
+            table.insert(zero_units, wol_zeroes[i])
+        end
+    end
     for i=1, trainee_weight, 1 do  -- Make Trainee Mage more common
         table.insert(zero_units, "LZH_Trainee_Mage")
     end
@@ -66,6 +85,44 @@ if extra_units then
                                    "Dune Herbalist","Saurian Augur", }
     trainee_female_advance = { "Mage", "Dark Adept", "Dune Burner",
                                      "Elvish Shaman","Mermaid Initiate", }
+
+    wol_extra = {
+        "Blood Apprentice",
+        "Minotaur Shaman",
+        "Orcish Shaman",
+        "Necro Initiate",
+    }
+
+    wol_extra_m = {
+        "Thunder Mage",
+        "Legion Medic",
+        "Shaman",
+        "Shadow Initiate",
+    }
+
+    wol_extra_f = {
+        "Lightborn",
+        "Priestess of the Vault",
+        "Adept of Light",
+        "Wood Mage",
+        "Aragwaith Adept",
+        "Faerie Sprite",
+        "Elvish Acolyte",
+        "Scribe",
+        "Weaver",
+    }
+    if enable_wol then
+        for i=1, #wol_extra, 1 do
+            table.insert(trainee_male_advance, wol_extra[i])
+            table.insert(trainee_female_advance, wol_extra[i])
+        end
+        for i=1, #wol_extra_m, 1 do
+            table.insert(trainee_male_advance, wol_extra_m[i])
+        end
+        for i=1, #wol_extra_f, 1 do
+            table.insert(trainee_female_advance, wol_extra_f[i])
+        end
+    end
 end
 
 if not recall_list_done or gimme_more then
