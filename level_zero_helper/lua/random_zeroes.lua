@@ -67,9 +67,9 @@ local trainee_male_advance = {}
 local trainee_female_advance = {}
 
 if extra_units then
-    local trainee_weight = 5
+    local trainee_weight = #zero_units / 4
     if enable_wol then
-        trainee_weight = trainee_weight + 5
+        trainee_weight = trainee_weight + 2
         for i=1, #wol_zeroes, 1 do
             table.insert(zero_units, wol_zeroes[i])
         end
