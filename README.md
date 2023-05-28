@@ -11,3 +11,4 @@ There is an optional new unit: the Trainee Mage.  This weak level 0 unit has a d
 
 This addon is designed for wesnoth 1.16+, and contains units from the Default L0 Era.
 
+Additional units from the War of Legends addon are optional.
